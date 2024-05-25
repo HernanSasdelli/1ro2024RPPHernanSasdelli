@@ -93,3 +93,24 @@ function agregarVehiculo(vehiculos, modelo, anoFabricacion, velMax, tipoVehiculo
     vehiculos.push(vehiculo);
 
 }
+
+
+/*ORDENAMIENTO SOLO COLUMNA MODELO*/
+document.querySelector('.sort-header').addEventListener('click', function() {
+    const filas = Array.from(document.querySelectorAll('#tablaVehiculos tbody tr'));
+
+    const filasOrdenadas = filas.map(fila => ({
+        fila,
+        modelo: fila.querySelector('.tablaModelo').textContent.trim()
+    }))
+    .sort((a, b) => a.modelo.localeCompare(b.modelo))
+    .map(item => item.fila);
+
+    const cuerpoTabla = document.getElementById('tablaVehiculos').getElementsByTagName('tbody')[0];
+    cuerpoTabla.innerHTML = '';
+
+    filasOrdenadas.forEach(fila => {
+        cuerpoTabla.appendChild(fila);
+    });
+});
+
