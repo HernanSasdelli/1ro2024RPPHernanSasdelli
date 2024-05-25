@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM de Vehículos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header_container">
+        <h1 class="header_title">Recu Primer Parcial Laboratorio III 2024</h1>
+    </header>
+    <!--------------------------------------------------- TABLA ----------------------------------------------------->
+    <section class="container">
+        <div class="listadoVehiculos">
+            <h2>Listado de Vehículos</h2>
+    
+            <!--FILTRO-->
+            <div id="filtros" class="filtrosTabla"> 
+                <label>Filtrar por:</label>
+                <select id="filtroTipo">
+                    <option value="todos">Todos</option>
+                    <option value="auto">Auto</option>
+                    <option value="camion">Camión</option>
+                </select>
+            </div> 
+            
+            <!--BOTON CLCULAR -->
+            <div id="calcularBox" class="calcular"> 
+                <label>Calcular velocidad máxima promedio:</label>
+                <button id="botonCalcular">Calcular</button>
+            </div>
+
+            <!--CHECKS-->
+            <div class="tabla_checkbox">
+                <input type="checkbox" id="checkID" checked>ID
+                <input type="checkbox" id="checkModelo" checked>Modelo
+                <input type="checkbox" id="checkAnoFabricacion" checked>Año de Fabricación
+                <input type="checkbox" id="checkVelMax" checked>Velocidad Máxima
+                <input type="checkbox" id="checkCantidadPuertas" checked>Cantidad de Puertas
+                <input type="checkbox" id="checkAsientos" checked>Asientos
+                <input type="checkbox" id="checkCarga" checked>Carga
+                <input type="checkbox" id="checkAutonomia" checked>Autonomía
+            </div>
+            
+            <!--TITULOS-->
+            <table id="tablaVehiculos" class="tablaBody">
+                <thead>
+                    <tr>
+                        <th class="tablaID">ID</th>
+                        <th class="tablaModelo">Modelo</th>
+                        <th class="tablaAnoFabricacion">Año de Fabricación</th>
+                        <th class="tablaVelMax">Velocidad Máxima</th>
+                        <th class="tablaCantidadPuertas">Cantidad de Puertas</th>
+                        <th class="tablaAsientos">Asientos</th>
+                        <th class="tablaCarga">Carga</th>
+                        <th class="tablaAutonomia">Autonomía</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="infoTabla"></tr>                        
+                </tbody>
+            </table>
+            <div class="tabla_footer">
+                <button id="agregarBtn">Agregar</button>
+            </div>
+        </div>
+    </section>
+    
+    <!--------------------------------------------------- ABM ----------------------------------------------------->
+    <section class="container">
+        <div id="formularioABM" class="formularioABM">
+            <h1>Formulario de Vehículos</h1>
+            <div class="campo">
+                <label>ID:</label>
+                <label class="id_1" id="vehiculo-id"></label>                
+            </div>
+            <div class="campo">
+                <label>Modelo:</label>
+                <input type="text" id="vehiculo-modelo" required>
+            </div>
+            <div class="campo">
+                <label>Año de Fabricación:</label>
+                <input type="number" min="1985" id="vehiculo-anoFabricacion" required>
+            </div>
+            <div class="campo">
+                <label>Velocidad Máxima:</label>
+                <input type="number" id="vehiculo-velMax" required>
+            </div>
+            <div class="campo">
+                <label>Tipo de Vehículo:</label>
+                <select id="tipoVehiculo">
+                    <option value="">Seleccione</option>
+                    <option value="auto">Auto</option>
+                    <option value="camion">Camión</option>
+                </select>
+            </div>
+            <div id="campos-auto" class="campo" style="display:none;">
+                <label>Cantidad de Puertas:</label>
+                <input type="number" id="auto-cantidadPuertas" required>
+            </div>
+            <div id="campos-auto" class="campo" style="display:none;">
+                <label>Asientos:</label>
+                <input type="number" id="auto-asientos" required>
+            </div>
+            <div id="campos-camion" class="campo" style="display:none;">
+                <label>Carga:</label>
+                <input type="number" id="camion-carga" required>
+            </div>
+            <div id="campos-camion" class="campo" style="display:none;">
+                <label>Autonomía:</label>
+                <input type="number" id="camion-autonomia" required>
+            </div>
+            <div class="abm_botones">
+                <button class="agregarVehiculo">Agregar</button>
+                <button class="modificarVehiculo"id="modificarBtn">Modificar</button>
+                
+                <button class="eliminarVehiculo">Eliminar</button>
+                <button class="cancelar">Cancelar</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="vehiculos.js"></script>
+    <script src="datos.js"></script>
+    <script src="tabla.js"></script>
+    <script src="abm.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
